@@ -120,13 +120,13 @@ has6309:
 memsz:
 	ldx #$1000
 	lda ,x
-	neg ,x
+	com ,x
 	cmpa ,x
 	beq _4k@
 	sta ,x
 	ldx #$4000
 	lda ,x
-	neg ,x
+	com ,x
 	cmpa ,x
 	beq _16k@
 	sta ,x
