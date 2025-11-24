@@ -1,6 +1,6 @@
-	include "../asm_inc/ecb.asm"
-	include "../asm_inc/coco.asm"
-	include "../asm_inc/coco3.asm"
+	include "asm_inc/ecb.asm"
+	include "asm_inc/coco.asm"
+	include "asm_inc/coco3.asm"
 toram	macro
 	fcb $16,$80,$00
 	sta RAMRAM
