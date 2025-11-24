@@ -1,4 +1,4 @@
-SYS=../asm_inc/coco.asm ../asm_inc/coco3.asm constants.asm
+SYS=asm_inc/coco.asm asm_inc/coco3.asm constants.asm
 INC=hardware.asm march.asm menu.asm print.asm setgfx.asm
 OBJS=diag.ccc
 
