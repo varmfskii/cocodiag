@@ -51,3 +51,15 @@ loop@:
 	bne loop@
 	lbra anykey
 
+main_menu:
+	fcz "MAIN MENU"
+	fcz "A) HARDWARE INFO"
+	fcz "B) MEMORY TEST"
+	fcz "C) PRINTER TEST"
+	fcz "D) ROM TEST"
+	fcz "*) VIDEO TEST"
+	fcz "*) SOUND TEST"
+	fcz "*) JOYSTICK TEST"
+	fcz "*) KEYBOARD TEST"
+	fcb $00
+

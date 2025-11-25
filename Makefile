@@ -1,4 +1,4 @@
-SYS=asm_inc/coco.asm asm_inc/coco3.asm constants.asm
+SYS=asm_inc/ecb.asm asm_inc/coco.asm asm_inc/coco3.asm constants.asm
 INC=hardware.asm memory.asm menu.asm print.asm printer.asm rom.asm \
 	video.asm crctab.bin
 OBJS=diag.ccc

@@ -243,8 +243,7 @@ l@:
 	sta memerr
 	decb
 	bne l@
-	lda #$c9
-	tfr a,b
+	ldd #$c9*257
 loop@:
 	std ,x++
 	cmpx #$0400
@@ -263,4 +262,9 @@ memerr@:
 	ldy #$0247
 	lbsr print_string
 	lbra anykey
+
+memgood:
+	fcz "MEMORY TEST PASSED"
+membad:
+	fcz "MEMORY TEST FAILED"
 

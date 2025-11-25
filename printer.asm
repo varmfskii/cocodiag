@@ -3,6 +3,7 @@ print_test:
 	lbsr cls
 	ldx #printing
 	ldy #$024c
+	lbsr print_string
 	lda #-1
 	sta DEVNUM
 	lda cr
@@ -16,6 +17,13 @@ loop@:
 	lda cr
 	jmp [CHROUT]
 	clr DEVNUM
-	lbsr anykey
-	rts
-	
+	ldx #done
+	ldy #$024e
+	lbsr print_string
+	lbra anykey
+
+printing:
+	fcz "PRINTING"
+done:
+	fcz "DONE"
+

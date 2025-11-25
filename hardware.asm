@@ -309,3 +309,30 @@ sizes:
 	fdb ram512k
 	fdb ram1M
 	fdb ram2M
+hwtitle:
+	fcz "HARDWARE INFORMATION"
+mmu:	fcz "MMU"
+nommu:	fcz "NO MMU"
+coco12:	fcz "COCO 1/2"
+coco3:	fcz "COCO 3"
+dragon:	fcz "DRAGON"
+ram4k:	fcz "4K RAM"
+ram16k:	fcz "16K RAM"
+ram32k:	fcz "32K RAM"
+ram64k:	fcz "64K RAM"
+ram128k:
+	fcz "128K RAM"
+ram256k:
+	fcz "256K RAM"
+ram512k:
+	fcz "512K RAM"
+ram1M:	fcz "1M RAM"
+ram2M:	fcz "2M RAM"
+unknown:
+	fcz "UNKNOWN"
+h6309:	fcz "CPU H6309"
+m6809:	fcz "CPU M6809"
+pal:	fcz "50HZ"
+ntsc:	fcz "60HZ"
+
+	

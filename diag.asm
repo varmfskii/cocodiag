@@ -94,10 +94,20 @@ anykey:
 	include "hardware.asm"
  	include "memory.asm"
 	include "menu.asm"
-	include "print.asm"
+	include "util.asm"
 	include "video.asm"
 	include "printer.asm"
 	include "rom.asm"
+
+	title:	fcz "COLOR COMPUTER"
+	fcz "DIAGNOSTICS CART"
+version:
+	fcz "VERSION  0.2"
+	fcz "(C) 2025 ZIA COMPUTING"
+page0:	fcz "PAGE 0 ERROR"
+page1:	fcz "PAGE 1 ERROR"
+blank:	fcz "            "
+
 fill:
 	rmb $e000-fill
 	end
