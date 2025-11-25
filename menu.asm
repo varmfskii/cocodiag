@@ -28,7 +28,7 @@ menu@:
 poll@:
 	jsr [POLCAT]
 	beq poll@
-	cmpa #'B'
+	cmpa #'C'
 	bgt poll@
 	suba #'A'
 	blt poll@
@@ -40,7 +40,7 @@ poll@:
 	
 
 menu_tbl:
-	fdb showhw,memtest
+	fdb showhw,memtest,print_test
 
 test:
 	clra
@@ -87,4 +87,23 @@ memerr@:
 	lbsr print_string
 	lbra anykey
 
+print_test:
+	lbsr cls
+	ldx #printing
+	ldy #$024c
+	lda #-1
+	sta DEVNUM
+	lda cr
+	jmp [CHROUT]
+	lda $20
+loop@:
+	jmp [CHROUT]
+	inca
+	cmpa #$7e
+	ble loop@
+	lda cr
+	jmp [CHROUT]
+	clr DEVNUM
+	lbsr anykey
+	rts
 	

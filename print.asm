@@ -68,6 +68,7 @@ main_menu:
 	fcz "MAIN MENU"
 	fcz "A) HARDWARE INFO"
 	fcz "B) MEMORY TEST"
+	fcz "C) PRINTER TEST"
 	fcb $00
 hwtitle:
 	fcz "HARDWARE INFORMATION"
@@ -98,4 +99,5 @@ memgood:
 	fcz "MEMORY TEST PASSED"
 membad:
 	fcz "MEMORY TEST FAILED"
-	
+printing:
+	fcz "PRINTING"
