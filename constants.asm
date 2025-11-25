@@ -16,6 +16,7 @@ scr_space equ space+$40
 ramsize equ $0140
 hwflag equ $0141
 memerr equ $0142	
+TEMP equ $144
 ;;; hardware flags
 coco3_f equ $01
 mmu_f equ $02

@@ -97,6 +97,7 @@ anykey:
 	include "print.asm"
 	include "video.asm"
 	include "printer.asm"
+	include "rom.asm"
 fill:
 	rmb $e000-fill
 	end

@@ -28,7 +28,7 @@ menu@:
 poll@:
 	jsr [POLCAT]
 	beq poll@
-	cmpa #'C'
+	cmpa #'D'
 	bgt poll@
 	suba #'A'
 	blt poll@
@@ -40,7 +40,7 @@ poll@:
 	
 
 menu_tbl:
-	fdb showhw,memtest,print_test
+	fdb showhw,memtest,print_test,romtest
 
 test:
 	clra

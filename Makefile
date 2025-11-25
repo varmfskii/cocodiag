@@ -1,5 +1,6 @@
 SYS=asm_inc/coco.asm asm_inc/coco3.asm constants.asm
-INC=hardware.asm memory.asm menu.asm print.asm printer.asm video.asm
+INC=hardware.asm memory.asm menu.asm print.asm printer.asm rom.asm \
+	video.asm crctab.bin
 OBJS=diag.ccc
 
 all: ${OBJS}
@@ -7,10 +8,13 @@ all: ${OBJS}
 diag.ccc: diag.asm ${SYS} ${INC}
 	lwasm $< -o$@ -fraw -ldiag.txt
 
+crctab.bin:
+	./gencrctab.py 8005 $@
+
 .PHONY: clean distclean build
 
 clean:
-	rm -f *~ *.txt
+	rm -f *~ *.txt crctab.bin
 
 distclean: clean
 	rm ${OBJS}

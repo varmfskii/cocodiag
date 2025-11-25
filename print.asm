@@ -59,7 +59,7 @@ letter@:
 title:	fcz "COLOR COMPUTER"
 	fcz "DIAGNOSTICS CART"
 version:
-	fcz "VERSION  0.1"
+	fcz "VERSION  0.2"
 	fcz "(C) 2025 ZIA COMPUTING"
 page0:	fcz "PAGE 0 ERROR"
 page1:	fcz "PAGE 1 ERROR"
@@ -69,7 +69,7 @@ main_menu:
 	fcz "A) HARDWARE INFO"
 	fcz "B) MEMORY TEST"
 	fcz "C) PRINTER TEST"
-	fcz "*) ROM TEST"
+	fcz "D) ROM TEST"
 	fcz "*) VIDEO TEST"
 	fcz "*) SOUND TEST"
 	fcz "*) JOYSTICK TEST"
@@ -106,3 +106,18 @@ membad:
 	fcz "MEMORY TEST FAILED"
 printing:
 	fcz "PRINTING"
+romstr:	fcz "ROM TEST"
+colorbasic:
+	fcz "COLOR BASIC: "
+excolorbasic:
+	fcz "EXTENDED COLOR BASIC: "
+dragonbasic:
+	fcz "DRAGON BASIC: "
+v10:	fcz " 1.0"
+v11:	fcz " 1.1"
+v12:	fcz " 1.2"
+v13:	fcz " 1.3"
+v14:	fcz " 1.4"
+d32:	fcz " 1.0 32K"
+d64:	fcz " 1.0 64K"
+	
