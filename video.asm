@@ -1,13 +1,21 @@
-setgfx:
+settxt:
 ;;;
 ;;; put in text mode and set gfx address to page a
 ;;; 
 ;;; a = page number
+;;;
+	ldb #$08 		; text mode alternate color
+setgfx:
+;;;
+;;; set graphics mode
 ;;; 
-	;; set text mode
+;;; a = page number
+;;; b = graphics mode
+;;;
+	pshs d
 	ldb VDG
 	andb #$07
-	orb #$08
+	orb 1,s
 	stb VDG
 	;; set address to $0000
 	sta SAM_f0		; $0200 off
@@ -29,4 +37,8 @@ skip@:
 	leax 2,x
 	bra loop@
 exit@:
+	puls d,pc
+
+video_test:
 	rts
+

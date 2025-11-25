@@ -59,7 +59,7 @@ letter@:
 title:	fcz "COLOR COMPUTER"
 	fcz "DIAGNOSTICS CART"
 version:
-	fcz "VERSION  0.0"
+	fcz "VERSION  0.1"
 	fcz "(C) 2025 ZIA COMPUTING"
 page0:	fcz "PAGE 0 ERROR"
 page1:	fcz "PAGE 1 ERROR"
@@ -69,6 +69,11 @@ main_menu:
 	fcz "A) HARDWARE INFO"
 	fcz "B) MEMORY TEST"
 	fcz "C) PRINTER TEST"
+	fcz "*) ROM TEST"
+	fcz "*) VIDEO TEST"
+	fcz "*) SOUND TEST"
+	fcz "*) JOYSTICK TEST"
+	fcz "*) KEYBOARD TEST"
 	fcb $00
 hwtitle:
 	fcz "HARDWARE INFORMATION"

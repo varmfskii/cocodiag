@@ -5,7 +5,7 @@ start:
 	ldx #$1000
 	tfr x,s
 	lda #$02
-	lbsr setgfx
+	lbsr settxt
 	lbsr cls
 
 	lda #'*'
@@ -53,7 +53,7 @@ loop@:
 	lbra menu
 	;; lbsr showhw
 	;; clra
-	;; lbsr setgfx
+	;; lbsr settxt
 endlp:
 	inc $03e0
 	bra endlp
@@ -92,10 +92,11 @@ anykey:
 	rts
 	
 	include "hardware.asm"
- 	include "march.asm"
+ 	include "memory.asm"
 	include "menu.asm"
 	include "print.asm"
-	include "setgfx.asm"
+	include "video.asm"
+	include "printer.asm"
 fill:
 	rmb $e000-fill
 	end

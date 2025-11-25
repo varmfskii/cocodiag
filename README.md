@@ -1,16 +1,18 @@
 # Capabilities
 
-## Hardware detection
+- Hardware detection
 
-- Detect Coco 1/2, CoCo 3, or Dragon
+ - Detect Coco 1/2, CoCo 3, or Dragon
 
-- Detect GIME style MMU
+ - Detect GIME style MMU
 
-- Detect memory installed 4k-2M
+ - Detect memory installed 4k-2M
 
-- Detect 50/60Hz operation
+ - Detect 50/60Hz operation
 
-## Memory test
+- Memory test
+
+- Printer test
 
 # TODO
 
@@ -29,8 +31,6 @@
 - keyboard test
 
 - cassette test
-
-- printer test
 
 - serial test
 
