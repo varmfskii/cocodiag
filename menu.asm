@@ -28,7 +28,7 @@ menu@:
 poll@:
 	jsr [POLCAT]
 	beq poll@
-	cmpa #'D'
+	cmpa #'E'
 	bgt poll@
 	suba #'A'
 	blt poll@
@@ -40,7 +40,7 @@ poll@:
 	
 
 menu_tbl:
-	fdb showhw,memtest,print_test,romtest
+	fdb showhw,memtest,print_test,romtest,video_test
 
 test:
 	clra
@@ -57,7 +57,7 @@ main_menu:
 	fcz "B) MEMORY TEST"
 	fcz "C) PRINTER TEST"
 	fcz "D) ROM TEST"
-	fcz "*) VIDEO TEST"
+	fcz "E) VIDEO TEST"
 	fcz "*) SOUND TEST"
 	fcz "*) JOYSTICK TEST"
 	fcz "*) KEYBOARD TEST"

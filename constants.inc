@@ -2,18 +2,14 @@
 	include coco.inc
 	include coco3.inc
 toram	macro
-	clr $200
 	lbsr ramcpy
 	fcb $16,$80,$00
-	inc $200
 	sta RAMRAM
 	endm
 
 torom	macro
 	sta RAMROM
 	fcb $16,$80,$00
-	clr $200
-	com $200
 	endm
 
 scr_space	equ space+$40

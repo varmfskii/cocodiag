@@ -130,8 +130,6 @@ memsz:
 	beq _16k@
 	sta ,x
 chkstt:
-	lda #'1'|$40
-	sta $220
 	toram
 	clr $1000
 	clr $9000
@@ -171,8 +169,6 @@ setmmu@:
 	inca
 	cmpa #$40
 	bne setmmu@
-	lda #'2'|$40
-	sta $220
 	toram
 	lda #$f4
 	sta INIT0

@@ -15,8 +15,10 @@ loop@:
 	lda ramsize
 	cmpa #_4k
 	beq exit@
-	bra mode6847
+	bsr mode6847
 exit@:
+	ldd #$0208
+	lbsr setgfx
 	rts
 coco3@:
 	ldy #mode3
