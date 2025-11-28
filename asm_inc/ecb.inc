@@ -1,7 +1,7 @@
 	;; Disk Extended Color Basic defines
 	ifndef _ECB_
 _ECB_:	equ 1
-	include coco.asm
+	include coco.inc
 cr:	equ 13
 space:	equ 32
 DEVCFW:	equ $006a		; tab zone field width

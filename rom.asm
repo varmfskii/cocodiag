@@ -43,7 +43,7 @@ loop@:
 	leax 4,x
 	cmpx #ecbtab
 	bne loop@
-	ldx #unknown
+	ldx #unk
 	lbra print_string
 exit@:
 	ldx 2,x
@@ -72,7 +72,7 @@ loop@:
 	leax 4,x
 	cmpx #secbtab
 	bne loop@
-	ldx #unknown
+	ldx #unk
 	lbra print_string
 exit@:
 	ldx 2,x
@@ -102,7 +102,7 @@ loop@:
 	leax 4,x
 	cmpx #romtabend
 	bne loop@
-	ldx #unknown
+	ldx #unk
 	lbra print_string
 exit@:
 	ldx 2,x
@@ -151,6 +151,7 @@ excolorbasic:
 	fcz "EXTENDED COLOR BASIC: "
 dragonbasic:
 	fcz "DRAGON BASIC: "
+unk:	fcz " UNK"
 v10:	fcz " 1.0"
 v11:	fcz " 1.1"
 v12:	fcz " 1.2"
@@ -158,4 +159,3 @@ v13:	fcz " 1.3"
 v14:	fcz " 1.4"
 d32:	fcz " 1.0 32K"
 d64:	fcz " 1.0 64K"
-	

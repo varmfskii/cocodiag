@@ -2,7 +2,7 @@
 	ifndef _SDC_
 _SDC_:	equ 1
 	ifdef _COCO_
-	include decb.asm
+	include decb.inc
 	;; Hardware Addressing - CoCo Scheme
 sdc_ctrl_latch:	equ $FF40	; controller latch (write)
 sdc_cmd_reg:	equ $FF48	; command register (write)
@@ -11,7 +11,7 @@ sdc_param0:	equ $FF49	; param register 1
 sdc_param1:	equ $FF4A	; param register 2
 sdc_param2:	equ $FF4B	; param register 3
 	else
-	include ddos.asm
+	include ddos.inc
 	;; Hardware Addressing - Dragon Scheme
 sdc_cmd_reg:	equ $FF40	; command register (write)
 sdc_stat_reg:	equ $FF40	; status register (read)

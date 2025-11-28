@@ -1,4 +1,4 @@
-SYS=asm_inc/ecb.asm asm_inc/coco.asm asm_inc/coco3.asm constants.asm
+SYS=asm_inc/ecb.inc asm_inc/coco.inc asm_inc/coco3.inc constants.inc
 INC=hardware.asm memory.asm menu.asm util.asm printer.asm rom.asm \
 	video.asm crctab.bin
 OBJS=diag.ccc
@@ -6,7 +6,7 @@ OBJS=diag.ccc
 all: ${OBJS}
 
 diag.ccc: diag.asm ${SYS} ${INC}
-	lwasm $< -o$@ -fraw -ldiag.txt
+	lwasm -Iasm_inc -o$@ -fraw -ldiag.txt $<
 
 crctab.bin:
 	./gencrctab.py 8005 $@

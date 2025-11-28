@@ -70,30 +70,32 @@ setgfx:
 ;;; b = graphics mode
 ;;;
 	pshs d
+	andb #$f8
+	stb TEMP
 	ldb VDG
 	andb #$07
-	orb 1,s
+	orb TEMP
 	stb VDG
-	;; set address to $0000
-	sta SAM_f0		; $0200 off
-	sta SAM_f1		; $0400 off
-	sta SAM_f2		; $0800 off
-	sta SAM_f3		; $1000 off
-	sta SAM_f4		; $2000 off
-	sta SAM_f5		; $4000 off
-	sta SAM_f6		; $8000 off
+	ldu #SAM
+	lda 1,s
+	ldb #3
+	bsr dobits
+	lda ,s
 	lsra
-	ldx #SAM_f0+1
-loop@:
-	cmpa #$00
-	beq exit@
-	lsra
-	bcc skip@
-	sta ,x
-skip@:
-	leax 2,x
-	bra loop@
-exit@:
+	ldb #7
+	bsr dobits
 	puls d,pc
+
+dobits:
+	stb TEMP
+loop@:
+	clrb
+	lsra
+	adcb #$00
+	stb b,u
+	leau 2,u
+	dec TEMP
+	bne loop@
+	rts
 
 	

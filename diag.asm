@@ -1,4 +1,4 @@
-	include "constants.asm"
+	include "constants.inc"
 	org $c000
 start:
 	orcc #$50

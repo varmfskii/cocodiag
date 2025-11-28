@@ -1,6 +1,6 @@
 ;;; Color Computer 3 hardware addresses
 	ifndef _COCO3_
-	include coco.asm
+	include coco.inc
 SLOW:	set SAM_r1
 FAST:	set SAM_r1+1
 INIT0:	equ $ff90
