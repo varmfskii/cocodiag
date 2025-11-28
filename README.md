@@ -22,6 +22,8 @@
 
 - video tests
 
+  - GIME video mode tests
+  
 - keyboard tests
 
 - audio tests
