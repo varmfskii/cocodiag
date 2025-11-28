@@ -1,6 +1,5 @@
 hardware:
-	lda #$f0
-	sta hwflag
+	clr hwflag
 	bsr machine_type
 	bsr ispal
 	bsr hasmmu
@@ -130,15 +129,9 @@ memsz:
 	cmpa ,x
 	beq _16k@
 	sta ,x
-	;; copy routine into ram
-	ldx #chkstt
-loop@:
-	lda ,x
-	sta $8000,x
-	leax 1,x
-	cmpx #chkend
-	bne loop@
-chkstt:	
+chkstt:
+	lda #'1'|$40
+	sta $220
 	toram
 	clr $1000
 	clr $9000
@@ -171,12 +164,6 @@ _4k@:
 ;;; 
 memsz_mmu:
 	ldx #memsz_mmu
-copy@:
-	lda ,x
-	sta $8000,x
-	leax 1,x
-	cmpx #memsz_end
-	bne copy@
 	lda #$38
 	ldx #MMU00
 setmmu@:
@@ -184,6 +171,8 @@ setmmu@:
 	inca
 	cmpa #$40
 	bne setmmu@
+	lda #'2'|$40
+	sta $220
 	toram
 	lda #$f4
 	sta INIT0

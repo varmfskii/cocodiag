@@ -109,6 +109,9 @@ error:
 	puls a,b,x,pc
 
 memtst:
+	lda hwflag
+	anda #~inram_f
+	sta hwflag
 	ldx #$0400
 	lda ramsize
 	cmpa #_64k
@@ -120,13 +123,6 @@ memtst:
 	lda ramsize
 	cmpa #_64k
 	bne exit@
-	ldx #marstt
-copy@:
-	lda ,x
-	sta $8000,x
-	leax 1,x
-	cmpx #marend
-	bne copy@
 	toram
 	ldx #$8000
 	ldy #$ff00
@@ -164,13 +160,6 @@ loop30@:
 	cmpy #$0240
 	bne loop30@
 	sta $0330
-	ldx #$c000
-copy@:
-	lda ,x
-	sta $8000,x
-	leax 1,x
-	cmpx #$e000
-	bne copy@
 	ldx #ramszs
 	lda ramsize
 	lsla

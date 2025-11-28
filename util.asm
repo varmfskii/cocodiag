@@ -98,4 +98,27 @@ loop@:
 	bne loop@
 	rts
 
+;;;
+;;; ramcpy - copy rom to ram ($c000-$e000 -> $4000-$6000)
+;;;
+ramcpy:
+	pshs d,x,y
+	lda hwflag
+	anda #inram_f
+	bne exit@
+	ldx #$c000
+	ldy #$4000
+loop@:
+	lda ,x+
+	sta ,y+
+	cmpx #$e000
+	bne loop@
+	lda hwflag
+	ora #inram_f
+	sta hwflag
+exit@:
+	inc $200
+	puls x,y,d,pc
+
+	
 	
