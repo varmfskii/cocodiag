@@ -10,7 +10,7 @@ start@:
 	ldy #$220
 	ldd #('-'|$40)*257
 loop@:
-	sta ,y++
+	std ,y++
 	cmpy #$240
 	bne loop@
 	lda hwflag
