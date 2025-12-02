@@ -218,6 +218,9 @@ loop@:
 marend:	
 
 memtest:
+	fdb start@
+	fcz "MEMORY TEST"
+start@:
 	clr memerr
 	ldu #$0000
 	ldx #$0200

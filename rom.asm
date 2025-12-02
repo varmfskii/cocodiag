@@ -1,5 +1,8 @@
 
 romtest:
+	fdb start@
+	fcz "ROM TEST"
+start@:
 	lbsr cls
 	ldy #$20c
 	ldx #romstr

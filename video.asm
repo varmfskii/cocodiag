@@ -1,5 +1,8 @@
 
 video_test:
+	fdb start@
+	fcz "MC6847 VIDEO TEST"
+start@:
 	ldx #$0400
 	clra
 loop@:

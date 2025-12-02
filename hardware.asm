@@ -221,8 +221,10 @@ _2M@:
 
 ;;;
 ;;; show the detected hardware configuration
-;;; 
-showhw:
+;;;
+showhw:	fdb start@
+	fcz "HARDWARE INFO"
+start@:
 	lbsr cls
 	ldx #hwtitle
 	ldy #$0206

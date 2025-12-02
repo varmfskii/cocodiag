@@ -1,5 +1,8 @@
 
 print_test:
+	fdb start@
+	fcz "PRINTER TEST"
+start@:
 	lbsr cls
 	ldx #printing
 	ldy #$024c

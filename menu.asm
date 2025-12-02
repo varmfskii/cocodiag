@@ -13,18 +13,30 @@ hline@:
 	lbsr print_string
 	ldy #$0228
 	lbsr print_string
-	ldx #main_menu
-	ldy #$026c
+	ldy #$26c
+	ldx #menu_title
 	lbsr print_string
 	ldy #$02a1
+	ldu #entries
+	lda #'A'|$40
+	sta TEMP
 menu@:
+	ldx ,u
+	beq poll@
+	lda TEMP
+	sta ,y+
+	inca
+	sta TEMP
+	ldd #(')'*256+' ')|$4040
+	std ,y++
+	leax 2,x
 	lbsr print_string
+	leau 2,u
 	tfr y,d
 	andb #$e0
 	addd #$21
 	tfr d,y
-	lda ,x
-	bne menu@
+	bra menu@
 poll@:
 	jsr [POLCAT]
 	beq poll@
@@ -33,14 +45,14 @@ poll@:
 	suba #'A'
 	blt poll@
 	lsla
-	sta $0220
-	ldx #menu_tbl
-	jsr [a,x]
+	ldx #entries
+	ldx a,x
+	jsr [,x]
 	bra menu
 	
 
-menu_tbl:
-	fdb showhw,memtest,print_test,romtest,video_test
+entries:
+	fdb showhw,memtest,print_test,romtest,video_test,0
 
 test:
 	clra
@@ -51,15 +63,5 @@ loop@:
 	bne loop@
 	lbra anykey
 
-main_menu:
+menu_title:
 	fcz "MAIN MENU"
-	fcz "A) HARDWARE INFO"
-	fcz "B) MEMORY TEST"
-	fcz "C) PRINTER TEST"
-	fcz "D) ROM TEST"
-	fcz "E) VIDEO TEST"
-	fcz "*) SOUND TEST"
-	fcz "*) JOYSTICK TEST"
-	fcz "*) KEYBOARD TEST"
-	fcb $00
-
