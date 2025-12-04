@@ -19,14 +19,14 @@
  - m6847
 
  - GIME
- 
+
+- Joystick test (partial)
+
 # TODO
 
 - Hardware
   
   - Detect other external hardware where possible
-
-- video tests
 
 - keyboard tests
 
@@ -40,4 +40,4 @@
 
 - serial test
 
-- joystick test
+- joystick test (partial)
