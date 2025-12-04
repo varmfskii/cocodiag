@@ -62,8 +62,22 @@ mode3:
 	fcb $08,$89,$99,$aa,$bb,$cc,$dd,$ee,$fe,$00
 
 coco3_menu:
-	lbsr set40
+	ldx #PAL
+	ldy #palette
+pal@:
+	lda ,y+
+	sta ,x+
+	cmpy #palend
+	bne pal@
+	clra
+	ldy #$0600
+set@:
+	sta ,y+
+	inca
+	cmpy #$8000
+	bne set@
 cc3@:
+	lbsr set40
 	lbsr cls40
 	ldd #257*'-'
 	ldy #$200+40
@@ -214,6 +228,7 @@ poll@:
 	jsr [POLCAT]
 	beq poll@
 	cmpa #'A'
+	blt poll@
 	bne s0@
 	lbsr restore_gime
 	lbsr m6847
@@ -233,7 +248,14 @@ table@: fdb test@
 	fdb bp@,un0@,bpi@,moch@,h50@,lpr@
 	fdb un1@,lpf@,hres@,cres@,brdr@
 test@:
-	lbra coco3_menu
+	lda vmode
+	sta VMODE
+	lda vres
+	sta VRES
+	ldd #($38*$2000+$0600)/8
+	std VOFF	
+	lbsr anykey
+	lbra cc3@
 bp@:
 	lda #%10000000
 onebit@:
@@ -261,12 +283,12 @@ lpr@:
 	sta vmode
 	orb vmode
 	stb vmode
-	lbra coco3_menu
+	lbra cc3@
 un1@:
 	lda #%10000000
 	eora vres
 	sta vres
-	lbra coco3_menu
+	lbra cc3@
 lpf@:	
 	lda vres
 	tfr a,b
@@ -276,7 +298,7 @@ lpf@:
 	sta vres
 	orb vres
 	stb vres
-	lbra coco3_menu
+	lbra cc3@
 hres@:
 	lda vres
 	tfr a,b
@@ -286,7 +308,7 @@ hres@:
 	sta vres
 	orb vres
 	stb vres
-	lbra coco3_menu
+	lbra cc3@
 cres@:
 	lda vres
 	tfr a,b
@@ -296,12 +318,12 @@ cres@:
 	sta vres
 	orb vres
 	stb vres
-	lbra coco3_menu
+	lbra cc3@
 brdr@:
 	lda brdr
 	inca
 	sta brdr
-	lbra coco3_menu
+	lbra cc3@
 	
 restore_gime:
 	lda #$80
@@ -323,7 +345,7 @@ c@:
 	lda #%00100100
 	sta VRES
 	ldd #($38*$2000+$0200)/8
-	std $ff9d
+	std VOFF
 	lda #$12
 	sta PAL
 	lda brdr
@@ -481,4 +503,10 @@ noa@:	fcz "0 No color attrs"
 cola@:	fcz "1 Color attrs"
 nob@:	fcz "2 No color attrs"
 colb@:	fcz "3 Color attrs"
+	
+palette:
+	fdb %000000,%001000,%010000,%011000,%100000,%101000,%110000,%111000
+	fdb %000111,%001001,%010010,%011011,%100100,%101101,%110110,%111111
+palend:
+
 	
