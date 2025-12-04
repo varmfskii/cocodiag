@@ -98,8 +98,9 @@ anykey:
 	include "video.asm"
 	include "printer.asm"
 	include "rom.asm"
+	include "joystick.asm"
 
-	title:	fcz "COLOR COMPUTER"
+title:	fcz "COLOR COMPUTER"
 	fcz "DIAGNOSTICS CART"
 version:
 	fcz "VERSION  0.4"

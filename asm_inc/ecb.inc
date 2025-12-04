@@ -1,4 +1,4 @@
-	;; Disk Extended Color Basic defines
+;; Disk Extended Color Basic defines
 	ifndef _ECB_
 _ECB_:	equ 1
 	include coco.inc
@@ -12,6 +12,7 @@ PRTDEV:	equ $006e		; print device (-1 cassette/0 not cassette)
 DEVNUM:	equ $006f		; device number
 CURPOS:	equ $0088		; current position for device 0
 	
+POTVAL:	equ $015a		; joystick pot values
 RVEC0:	equ $015e		; open
 RVEC1:	equ $0161		; device number validity check
 RVEC2:	equ $0164		; set print parameters
