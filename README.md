@@ -14,6 +14,12 @@
 
 - Printer test
 
+- Video test
+
+ - m6847
+
+ - GIME
+ 
 # TODO
 
 - Hardware
@@ -22,8 +28,6 @@
 
 - video tests
 
-  - GIME video mode tests
-  
 - keyboard tests
 
 - audio tests
