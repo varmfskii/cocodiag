@@ -1,5 +1,5 @@
 
-joystick_test:
+joystick:
 	fdb start@
 	fcz "JOYSTICK TEST"
 start@:

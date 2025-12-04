@@ -91,15 +91,18 @@ anykey:
 	beq anykey
 	rts
 	
+	include "cassette.asm"
 	include "hardware.asm"
- 	include "memory.asm"
-	include "menu.asm"
-	include "util.asm"
-	include "video.asm"
-	include "printer.asm"
-	include "rom.asm"
 	include "joystick.asm"
 	include "keyboard.asm"
+	include "menu.asm"
+	include "printer.asm"
+	include "rom.asm"
+	include "rs232.asm"
+	include "sound.asm"
+	include "util.asm"
+	include "video.asm"
+ 	include "memory.asm"
 
 title:	fcz "COLOR COMPUTER"
 	fcz "DIAGNOSTICS CART"

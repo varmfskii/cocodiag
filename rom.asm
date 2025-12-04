@@ -141,7 +141,7 @@ loop@:
 	bne loop@
 	puls y,pc
 	
-rom_test:
+rom:
 	rts
 
 crctab:

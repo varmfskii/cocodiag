@@ -1,5 +1,5 @@
 
-keyboard_test:
+keyboard:
 	fdb start@
 	fcz "KEYBOARD TEST"
 start@:

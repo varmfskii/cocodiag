@@ -1,5 +1,5 @@
 
-rs232_test:
+rs232:
 	fdb start@
 	fcz "RS232 TEST"
 start@:

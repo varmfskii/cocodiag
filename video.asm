@@ -1,5 +1,5 @@
 
-video_test:
+video:
 	fdb start@
 	fcz "VIDEO TEST"
 start@:

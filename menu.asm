@@ -52,8 +52,10 @@ poll@:
 	
 
 entries:
-	fdb showhw,memtest,print_test,romtest
-	fdb video_test,joystick_test,keyboard_test,0
+	fdb showhw,memtest,romtest,video
+	fdb keyboard,joystick;,sound,cassette,rs232
+	fdb print
+	fdb 0
 
 test:
 	clra

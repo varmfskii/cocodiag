@@ -1,6 +1,7 @@
 SYS=asm_inc/ecb.inc asm_inc/coco.inc asm_inc/coco3.inc constants.inc
-INC=hardware.asm memory.asm menu.asm util.asm printer.asm rom.asm \
-	video.asm crctab.bin joystick.asm keyboard.asm
+INC=cassette.asm crctab.bin hardware.asm joystick.asm keyboard.asm	\
+	memory.asm menu.asm printer.asm rom.asm rs232.asm sound.asm	\
+	util.asm video.asm
 OBJS=diag.ccc
 
 all: ${OBJS}
@@ -18,3 +19,4 @@ clean:
 
 distclean: clean
 	rm ${OBJS}
+

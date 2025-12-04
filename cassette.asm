@@ -1,7 +1,7 @@
 
 
-cassette_test:
-	fcb start@
+cassette:
+	fdb start@
 	fcz "CASSETTE TEST"
 start@:
 	rts

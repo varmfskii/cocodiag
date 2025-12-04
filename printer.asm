@@ -1,5 +1,5 @@
 
-print_test:
+print:
 	fdb start@
 	fcz "PRINTER TEST"
 start@:
