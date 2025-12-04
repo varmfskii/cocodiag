@@ -99,11 +99,12 @@ anykey:
 	include "printer.asm"
 	include "rom.asm"
 	include "joystick.asm"
+	include "keyboard.asm"
 
 title:	fcz "COLOR COMPUTER"
 	fcz "DIAGNOSTICS CART"
 version:
-	fcz "VERSION  0.5"
+	fcz "VERSION  0.6"
 	fcz "(C) 2025 ZIA COMPUTING"
 page0:	fcz "PAGE 0 ERROR"
 page1:	fcz "PAGE 1 ERROR"

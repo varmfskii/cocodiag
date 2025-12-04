@@ -59,11 +59,10 @@ s2@:
 	com $0f0c
 	com $0f2c
 s3@:
-	coma
-	anda #$0f
-	bne joy@
 	jsr [POLCAT]
 	beq joy@
+	cmpa #3			; escape
+	bne joy@
 	ldd #$0200
 	lbra setgfx
 	

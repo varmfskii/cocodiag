@@ -1,4 +1,4 @@
-# Capabilities
+# Capabilities as of v0.6
 
 - Hardware detection
 
@@ -12,15 +12,19 @@
 
 - Memory test
 
+- ROM test
+
 - Printer test
 
 - Video test
 
- - m6847
+  - m6847
 
- - GIME
+  - GIME
 
 - Joystick test
+
+- Keyboard test
 
 # TODO
 
@@ -28,13 +32,7 @@
   
   - Detect other external hardware where possible
 
-- keyboard tests
-
 - audio tests
-
-- rom tests
-
-- keyboard test
 
 - cassette test
 

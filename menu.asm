@@ -40,7 +40,7 @@ menu@:
 poll@:
 	jsr [POLCAT]
 	beq poll@
-	cmpa #'F'
+	cmpa #'G'
 	bgt poll@
 	suba #'A'
 	blt poll@
@@ -52,7 +52,8 @@ poll@:
 	
 
 entries:
-	fdb showhw,memtest,print_test,romtest,video_test,joystick_test,0
+	fdb showhw,memtest,print_test,romtest
+	fdb video_test,joystick_test,keyboard_test,0
 
 test:
 	clra

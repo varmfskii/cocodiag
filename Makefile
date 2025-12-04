@@ -1,6 +1,6 @@
 SYS=asm_inc/ecb.inc asm_inc/coco.inc asm_inc/coco3.inc constants.inc
 INC=hardware.asm memory.asm menu.asm util.asm printer.asm rom.asm \
-	video.asm crctab.bin joystick.asm
+	video.asm crctab.bin joystick.asm keyboard.asm
 OBJS=diag.ccc
 
 all: ${OBJS}
