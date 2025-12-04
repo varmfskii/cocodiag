@@ -20,7 +20,7 @@
 
  - GIME
 
-- Joystick test (partial)
+- Joystick test
 
 # TODO
 
@@ -39,5 +39,3 @@
 - cassette test
 
 - serial test
-
-- joystick test (partial)

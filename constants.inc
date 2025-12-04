@@ -14,9 +14,9 @@ torom	macro
 
 scr_space	equ space+$40
 ;;; locations
-ramsize		equ $94
-hwflag		equ $93
-memerr		equ $92
+ramsize		equ $96
+hwflag		equ $95
+memerr		equ $94
 TEMP		equ $90
 ;;; hardware flags
 coco3_f		equ $01
@@ -35,3 +35,5 @@ _256k		equ $05
 _512k		equ $06
 _1m		equ $07
 _2m		equ $08
+;;; m6847 video modes
+_128x96f	equ $cc
