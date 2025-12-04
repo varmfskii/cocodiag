@@ -25,14 +25,14 @@ l1@:
 	decb
 	bne l1@
 	leax 8,x
-	cmpx #$0384
+	cmpx #$0364
 	blt l0@
 	
 main@:	
 	lda #$fe
 	ldx #$0284
 l0@:
-	ldb #$08
+	ldb #$07
 	stb TEMP
 	sta KB_COL
 	ldb KB_ROW
@@ -52,7 +52,7 @@ cont@:
 	leax 32,x
 	dec TEMP
 	bne l1@
-	leax -253,x
+	leax -221,x
 	orcc #$01
 	rola
 	cmpa #$ff
@@ -79,7 +79,6 @@ cmatrix:
 	fcb '0','1','2','3','4','5','6','7'
 	fcb '8','9',':',';','<','-','>','/' 
 	fcb 'E','C','E','A','C','1','2','S'
-	fcb 'J','J','J','J','J','J','J','J'
 dmatrix:
 	fcb '0','1','2','3','4','5','6','7'
 	fcb '8','9',':',';','<','-','>','/' 
@@ -88,5 +87,4 @@ dmatrix:
 	fcb 'P','Q','R','S','T','U','V','W'
 	fcb 'X','Y','Z','^','V','<','>',$ff
 	fcb 'E','C','E','A','C','1','2','S'
-	fcb 'J','J','J','J','J','J','J','J'
 
