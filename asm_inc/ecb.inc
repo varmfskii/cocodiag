@@ -10,8 +10,13 @@ DEVPOS:	equ $006c		; print position (column)
 DEVWID:	equ $006d		; print width
 PRTDEV:	equ $006e		; print device (-1 cassette/0 not cassette)
 DEVNUM:	equ $006f		; device number
+
+BLKTYP: equ $007c		; cassette block type
+BLKLEN: equ $007d		; cassette block length
+CBUFAD: equ $007e		; cassette block address
+
 CURPOS:	equ $0088		; current position for device 0
-	
+
 POTVAL:	equ $015a		; joystick pot values
 RVEC0:	equ $015e		; open
 RVEC1:	equ $0161		; device number validity check
@@ -42,11 +47,11 @@ RVEC24:	equ $01a6		; detokenize line
 VIDRAM:	equ $0400		; start of screen memory
 GFXRAM:	set $0600		; start of graphics page 1
 	
-POLCAT:	equ $a000
-CHROUT:	equ $a002
-CSRDON:	equ $a004
-BLKIN:	equ $a006
-BLKOUT:	equ $a008
-JOYIN:	equ $a00a
-WRTLDR:	equ $a00c
+POLCAT:	equ $a000		; read character from keyboard
+CHROUT:	equ $a002		; write character to device
+CSRDON:	equ $a004		; turn on cassette and read leader
+BLKIN:	equ $a006		; read block from cassette
+BLKOUT:	equ $a008		; write block to cassette
+JOYIN:	equ $a00a		; read all 4 joystick pots
+WRTLDR:	equ $a00c		; turn on casette and write leader
 	endc
