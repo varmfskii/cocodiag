@@ -86,9 +86,9 @@ loop@:
 	cmpy #$200+80
 	bne loop@
 	ldx #cc3_title
-	ldy #$0200+12
+	ldy #screen+12
 	lbsr print3
-	ldy #$0200+41
+	ldy #screen+41
 	pshs y
 menu@:
 	ldy ,s
@@ -99,7 +99,7 @@ menu@:
 	bne menu@
 	puls y
 	lda vmode
-	ldy #$0200+6*40+15
+	ldy #screen+6*40+15
 	lbsr hex3
 	;; bp
 	lda vmode
@@ -108,7 +108,7 @@ menu@:
 	rola
 	rola
 	ldx #bp_modes
-	ldy #$0200+7*40+15
+	ldy #screen+7*40+15
 	leax [a,x]
 	lbsr print3
 	;; un0
@@ -119,7 +119,7 @@ menu@:
 	rola
 	rola
 	ldx #un_modes
-	ldy #$0200+8*40+15
+	ldy #screen+8*40+15
 	leax [a,x]
 	lbsr print3
 	;; bpi
@@ -130,7 +130,7 @@ menu@:
 	lsra
 	lsra
 	ldx #bpi_modes
-	ldy #$0200+9*40+15
+	ldy #screen+9*40+15
 	leax [a,x]
 	lbsr print3
 	;; moch
@@ -140,7 +140,7 @@ menu@:
 	lsra
 	lsra
 	ldx #moch_modes
-	ldy #$0200+10*40+15
+	ldy #screen+10*40+15
 	leax [a,x]
 	lbsr print3
 	;; h50
@@ -149,7 +149,7 @@ menu@:
 	lsra
 	lsra
 	ldx #h50_modes
-	ldy #$0200+11*40+15
+	ldy #screen+11*40+15
 	leax [a,x]
 	lbsr print3
 	;; lpr
@@ -157,11 +157,11 @@ menu@:
 	anda #%00000111
 	lsla
 	ldx #lpr_modes
-	ldy #$0200+12*40+15
+	ldy #screen+12*40+15
 	leax [a,x]
 	lbsr print3
 	lda vres
-	ldy #$0200+14*40+15
+	ldy #screen+14*40+15
 	lbsr hex3
 	;; un1
 	lda vres
@@ -181,7 +181,7 @@ menu@:
 	lsra
 	lsra
 	ldx #lpf_modes
-	ldy #$0200+16*40+15
+	ldy #screen+16*40+15
 	leax [a,x]
 	lbsr print3
 	lda vmode
@@ -191,7 +191,7 @@ menu@:
 	anda #%00011100
 	lsra
 	ldx #hres_tmodes
-	ldy #$0200+17*40+15
+	ldy #screen+17*40+15
 	leax [a,x]
 	lbsr print3
 	;; cres
@@ -199,7 +199,7 @@ menu@:
 	anda #%00000011
 	lsla
 	ldx #cres_tmodes
-	ldy #$0200+18*40+15
+	ldy #screen+18*40+15
 	leax [a,x]
 	lbsr print3
 	bra border
@@ -209,7 +209,7 @@ gimeg:
 	anda #%00011100
 	lsra
 	ldx #hres_gmodes
-	ldy #$0200+17*40+15
+	ldy #screen+17*40+15
 	leax [a,x]
 	lbsr print3
 	;; cres
@@ -217,12 +217,12 @@ gimeg:
 	anda #%00000011
 	lsla
 	ldx #cres_gmodes
-	ldy #$0200+18*40+15
+	ldy #screen+18*40+15
 	leax [a,x]
 	lbsr print3
 border:
 	lda brdr
-	ldy #$0200+20*40+15
+	ldy #screen+20*40+15
 	lbsr hex3
 poll@:
 	jsr [POLCAT]
@@ -344,7 +344,7 @@ c@:
 	sta VMODE
 	lda #%00100100
 	sta VRES
-	ldd #($38*$2000+$0200)/8
+	ldd #($38*$2000+screen)/8
 	std VOFF
 	lda #$12
 	sta PAL
@@ -355,7 +355,7 @@ c@:
 
 cls40:
 	ldd #' '*257
-	ldy #$0200
+	ldy #screen
 loop@:
 	std ,y++
 	cmpy #$200+40*25

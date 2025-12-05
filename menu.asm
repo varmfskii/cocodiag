@@ -59,7 +59,7 @@ entries:
 
 test:
 	clra
-	ldy #$0200
+	ldy #screen
 loop@:
 	sta ,y+
 	inca

@@ -37,3 +37,4 @@ _1m		equ $07
 _2m		equ $08
 ;;; m6847 video modes
 _128x96f	equ $cc
+screen:		equ $0200

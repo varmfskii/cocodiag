@@ -9,7 +9,7 @@ start:
 	lbsr cls
 
 	lda #'*'
-	ldy #$0200
+	ldy #screen
 loop@:
 	sta $01e0,y
 	sta ,y+
@@ -46,7 +46,7 @@ loop@:
 	lbsr tst_page
 	lda $0001
 	bne page1err
-	ldx #$0200
+	ldx #screen
 	tfr x,s
 	lbsr hardware
 	lbsr anykey

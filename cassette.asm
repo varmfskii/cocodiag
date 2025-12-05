@@ -5,56 +5,58 @@ cassette:
 	fcz "CASSETTE TEST"
 start@:
 	lbsr cls
-	ldy #$0222
+	ldy #screen+32+2
 	ldx #write_cas
 	lbsr print_string
+yes@:
+	jsr [POLCAT]
+	beq yes@
+	cmpa #'Y'
+	bne yes@
 	clra
-	ldx #$0300
+	ldx #screen+16*32
 loop@:
 	sta ,x+
 	inca
 	bne loop@
-yes@:
-	jsr [POLCAT]
-	bne yes@
-	cmpa #'Y'
-	bne yes@
-	ldd #$0300
+	ldd #screen+16*32
 	std CBUFAD
 	ldd #$02ff
 	std BLKTYP
 	jsr [WRTLDR]
 	jsr [BLKOUT]
-	lda PIA_B+1
+	lda $ff21
 	anda #$f7
-	sta PIA_B+1
+	sta $ff21
+	lbsr cls
 	ldx #read_cas
-	ldy #$0220
+	ldy #screen+32
 	lbsr print_string
-	ldd #$0300
+	ldd #screen+16*32
 	std CBUFAD
 	jsr [CSRDON]
 	jsr [BLKIN]
-	lda PIA_B+1
+	lda $ff21
 	anda #$f7
-	sta PIA_B+1
+	sta $ff21
 	ldd BLKTYP
 	cmpd #$02ff
 	bne error@
-	ldx #$0300
+	ldx #screen+16*32
 	clra
 loop2@:
 	cmpa ,x+
 	bne error@
 	inca
+	cmpa #$ff
 	bne loop2@
 	ldx #good_cas
-	ldy #$0248
+	ldy #screen+2*32+8
 	lbsr print_string
 	lbra anykey
 error@:
 	ldx #again_cas
-	ldy #$0243
+	ldy #screen+2*32+3
 	lbsr print_string
 loop3@:
 	jsr [POLCAT]

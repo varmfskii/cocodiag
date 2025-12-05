@@ -63,7 +63,7 @@ s3@:
 	beq joy@
 	cmpa #3			; escape
 	bne joy@
-	ldd #$0200
+	ldd #screen
 	lbra setgfx
 	
 getpos:

@@ -3,7 +3,7 @@
 ;;; cls
 ;;;
 cls:
-	ldy #$0200
+	ldy #screen
 	ldd #scr_space*257
 loop@:
 	std ,y++

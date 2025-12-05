@@ -137,7 +137,7 @@ memtest_mmu:
 	ldy #$2000
 	lbsr tst_blk
 	clra
-	ldy #$0200
+	ldy #screen
 loop38@:
 	ora ,y+
 	cmpy #$0220
@@ -223,13 +223,13 @@ memtest:
 start@:
 	clr memerr
 	ldu #$0000
-	ldx #$0200
+	ldx #screen
 	ldy #$0400
 	lbsr tst_blk
-	ldx #$0200
+	ldx #screen
 	ldb #$04
 l@:
-	lda -$0200,x
+	lda -screen,x
 	sta ,x+
 	ora memerr
 	sta memerr
@@ -240,7 +240,7 @@ loop@:
 	std ,x++
 	cmpx #$0400
 	bne loop@
-	ldu #$0200
+	ldu #screen
 	lbsr memtst
 	lbsr cls
 	lda memerr
