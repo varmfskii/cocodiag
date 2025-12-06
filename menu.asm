@@ -53,7 +53,7 @@ poll@:
 
 entries:
 	fdb showhw,memtest,romtest,video
-	fdb keyboard,joystick ;,sound,cassette,rs232
+	fdb keyboard,joystick,cassette ;,sound,cassette,rs232
 	fdb print
 	fdb 0
 
