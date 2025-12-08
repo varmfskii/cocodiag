@@ -34,6 +34,6 @@
 
 - audio tests
 
-- cassette test
+- cassette test - currently broken
 
 - serial test
