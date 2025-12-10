@@ -97,7 +97,7 @@ has6309:
 	beq m6809@
 	ora #h6309_f
 	sta hwflag
-	ldmd #$02		; set 6309 mode
+	ldmd #1		; set 6309 mode
 	puls d,pc
 	m6809@:
 	anda #~h6309_f

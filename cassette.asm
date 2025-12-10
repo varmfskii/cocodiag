@@ -1,5 +1,3 @@
-
-
 motor_off	macro
 	lda $ff21
 	anda #$f7
@@ -15,7 +13,12 @@ start@:
 	ldy #screen+32+2
 	ldx #write_cas
 	lbsr print_string
-	sta SLOW
+	lda hwflag
+	bit #h6309_f
+	bne c0@
+	ldmd #0
+c0@:
+	sta SLOW	
 yes@:
 	jsr [POLCAT]
 	beq yes@
@@ -79,10 +82,14 @@ loop3@:
 	bne loop3@
 exit@:
 	lda hwflag
-	anda #coco3_f
+	bit #coco3_f
 	beq coco12@
 	sta FAST
 coco12@:
+	bit #h6309_f
+	beq m6809@
+	ldmd #1
+m6809@:
 	rts
 
 write_cas:
