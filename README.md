@@ -1,4 +1,4 @@
-# Capabilities as of v0.6
+# Capabilities as of v0.7
 
 - Hardware detection
 
@@ -26,6 +26,8 @@
 
 - Keyboard test
 
+- Cassette test
+
 # TODO
 
 - Hardware
@@ -33,7 +35,5 @@
   - Detect other external hardware where possible
 
 - audio tests
-
-- cassette test - currently broken
 
 - serial test

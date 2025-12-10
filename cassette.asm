@@ -28,6 +28,7 @@ loop@:
 	inca
 	bne loop@
 	;; set default cassette parameters
+	clr $84			; rise
 	ldd #$1218		; threshold, upper pulse width limit
 	std $8f
 	ldd #$0a01		; lower pulse width limit, gap length
