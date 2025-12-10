@@ -2,7 +2,6 @@
 sound:
 	fdb start@
 	fcz "SOUND TEST"
-
 start@:
 	lda hwflag
 	sta SLOW

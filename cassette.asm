@@ -14,7 +14,7 @@ start@:
 	ldx #write_cas
 	lbsr print_string
 	lda hwflag
-	bit #h6309_f
+	bita #h6309_f
 	bne c0@
 	ldmd #0
 c0@:
@@ -82,11 +82,11 @@ loop3@:
 	bne loop3@
 exit@:
 	lda hwflag
-	bit #coco3_f
+	bita #coco3_f
 	beq coco12@
 	sta FAST
 coco12@:
-	bit #h6309_f
+	bita #h6309_f
 	beq m6809@
 	ldmd #1
 m6809@:

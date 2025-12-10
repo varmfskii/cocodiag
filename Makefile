@@ -15,7 +15,7 @@ crctab.bin:
 .PHONY: clean distclean build
 
 clean:
-	rm -f *~ *.txt crctab.bin
+	rm -f *~ *# *.txt crctab.bin
 
 distclean: clean
 	rm ${OBJS}

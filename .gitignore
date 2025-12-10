@@ -2,3 +2,7 @@
 *.ccc
 *.txt
 *.bin
+*.cas
+coco3.rom
+Vcc.ini
+Vcc.ini_bck
