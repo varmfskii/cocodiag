@@ -1,4 +1,3 @@
-
 ;;;
 ;;; cls
 ;;;
@@ -120,5 +119,27 @@ exit@:
 	inc $200
 	puls x,y,d,pc
 
-	
+go_fast:
+	lda hwflag
+	bita #h6309_f
+	beq m6809@
+	ldmd #1
+m6809@:
+	bita #coco3_f
+	beq exit@
+	sta FAST
+exit@:
+	rts
+
+go_slow:
+	lda hwflag
+	bita #h6309_f
+	beq m6809@
+	ldmd #0
+m6809@:
+	bita #coco3_f
+	beq exit@
+	sta SLOW
+exit@:
+	rts
 	

@@ -13,12 +13,7 @@ start@:
 	ldy #screen+32+2
 	ldx #write_cas
 	lbsr print_string
-	lda hwflag
-	bita #h6309_f
-	bne c0@
-	ldmd #0
-c0@:
-	sta SLOW	
+	lbsr go_slow
 yes@:
 	jsr [POLCAT]
 	beq yes@
@@ -68,7 +63,7 @@ loop2@:
 	ldy #screen+2*32+8
 	lbsr print_string
 	lbsr anykey
-	bra exit@
+	lbra go_fast
 error@:
 	ldx #again_cas
 	ldy #screen+2*32+3
@@ -80,17 +75,7 @@ loop3@:
 	lbeq start@
 	cmpa #'N'
 	bne loop3@
-exit@:
-	lda hwflag
-	bita #coco3_f
-	beq coco12@
-	sta FAST
-coco12@:
-	bita #h6309_f
-	beq m6809@
-	ldmd #1
-m6809@:
-	rts
+	lbra go_fast
 
 write_cas:
 	fcz "IS CASSETTE READY TO RECORD?"

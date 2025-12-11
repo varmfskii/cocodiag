@@ -229,7 +229,7 @@ start@:
 	ldx #screen
 	ldb #$04
 l@:
-	lda -screen,x
+	lda -$0200,x
 	sta ,x+
 	ora memerr
 	sta memerr
