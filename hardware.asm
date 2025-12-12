@@ -7,7 +7,8 @@ hardware:
 	lda #mmu_f
 	anda hwflag
 	lbne memsz_mmu
-	lbra memsz
+	lbsr memsz
+	lbra go_fast
 
 ;;;
 ;;; determine if system is a dragon or color computer (check rom)
@@ -26,7 +27,6 @@ machine_type:
 	stb PAL00
 	ora #coco3_f
 	sta hwflag
-	sta FAST
 	rts
 coco12@:
 	anda #~coco3_f
@@ -60,7 +60,7 @@ loop2@:
 	bpl loop2@
 	lda hwflag
 	;; more cycles for pal (50Hz) fewer for ntsc (60Hz)
-	cmpy #$0500
+	cmpy #$0540
 	bgt pal@
 	anda #~pal_f
 	sta hwflag
@@ -97,7 +97,6 @@ has6309:
 	beq m6809@
 	ora #h6309_f
 	sta hwflag
-	ldmd #1		; set 6309 mode
 	puls d,pc
 	m6809@:
 	anda #~h6309_f
