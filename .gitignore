@@ -3,6 +3,8 @@
 *.txt
 *.bin
 *.cas
+*.dsk
+*.bak
 coco3.rom
 Vcc.ini
 Vcc.ini_bck
