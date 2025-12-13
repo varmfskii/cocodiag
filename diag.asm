@@ -107,7 +107,7 @@ anykey:
 title:	fcz "COLOR COMPUTER"
 	fcz "DIAGNOSTICS CART"
 version:
-	fcz "VERSION  0.7"
+	fcz "VERSION  0.8"
 	fcz "(C) 2025 ZIA COMPUTING"
 page0:	fcz "PAGE 0 ERROR"
 page1:	fcz "PAGE 1 ERROR"

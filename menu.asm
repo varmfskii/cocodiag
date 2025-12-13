@@ -40,7 +40,7 @@ menu@:
 poll@:
 	jsr [POLCAT]
 	beq poll@
-	cmpa #'G'
+	cmpa #'I'
 	bgt poll@
 	suba #'A'
 	blt poll@
@@ -53,8 +53,8 @@ poll@:
 
 entries:
 	fdb showhw,memtest,romtest,video
-	fdb keyboard,joystick,cassette ;,sound,cassette,rs232
-	fdb print
+	fdb keyboard,joystick,cassette ;,sound,cassette
+	fdb rs232,print
 	fdb 0
 
 test:

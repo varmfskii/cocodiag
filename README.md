@@ -1,4 +1,4 @@
-# Capabilities as of v0.7
+# Capabilities as of v0.8
 
 - Hardware detection
 
@@ -28,6 +28,8 @@
 
 - Cassette test
 
+- Serial test - requires loopback connector, untested
+
 # TODO
 
 - Hardware
@@ -35,5 +37,3 @@
   - Detect other external hardware where possible
 
 - audio tests
-
-- serial test
