@@ -6,8 +6,8 @@ OBJS=ziadiag.ccc
 
 all: ${OBJS}
 
-ziadiag.ccc: diag.asm ${SYS} ${INC}
-	lwasm -Iasm_inc -o$@ -fraw -ldiag.txt $<
+ziadiag.ccc: ziadiag.asm ${SYS} ${INC}
+	lwasm -Iasm_inc -o$@ -fraw -lziadiag.txt $<
 
 crctab.bin:
 	./gencrctab.py 8005 $@
