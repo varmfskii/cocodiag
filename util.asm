@@ -142,4 +142,13 @@ m6809@:
 	sta SLOW
 exit@:
 	rts
-	
+
+;;;
+;;; delay - a timed loop runs through 8*y+16 cycles (counting the long
+;;; subroutine branch to call it
+;;;
+delay:
+	leay -1,y		; 5
+	bne delay		; 3
+	nop			; 2
+	rts			; 5
