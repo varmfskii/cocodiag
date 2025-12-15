@@ -1,4 +1,4 @@
-# Capabilities as of v0.8
+# Capabilities as of v1.0
 
 - Hardware detection
 
@@ -30,10 +30,10 @@
 
 - Serial test - requires loopback connector, untested
 
-# TODO
+- audio tests
+
+# TODO - maybe
 
 - Hardware
   
   - Detect other external hardware where possible
-
-- audio tests

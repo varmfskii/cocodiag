@@ -40,7 +40,7 @@ menu@:
 poll@:
 	jsr [POLCAT]
 	beq poll@
-	cmpa #'I'
+	cmpa #'J'
 	bgt poll@
 	suba #'A'
 	blt poll@
@@ -50,10 +50,9 @@ poll@:
 	jsr [,x]
 	bra menu
 	
-
 entries:
 	fdb showhw,memtest,romtest,video
-	fdb keyboard,joystick,cassette ;,sound,cassette
+	fdb keyboard,joystick,sound,cassette
 	fdb rs232,print
 	fdb 0
 
