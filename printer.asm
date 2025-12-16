@@ -6,7 +6,7 @@ start@:
 	lbsr go_slow
 	lbsr cls
 	ldx #printing
-	ldy #$024c
+	ldy #screen+2*32+12
 	lbsr print_string
 	lda #-1
 	sta DEVNUM
@@ -22,7 +22,7 @@ loop@:
 	jmp [CHROUT]
 	clr DEVNUM
 	ldx #done
-	ldy #$024e
+	ldy #screen+2*32+14
 	lbsr print_string
 	lbsr anykey
 	lbra go_fast

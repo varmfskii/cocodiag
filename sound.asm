@@ -8,15 +8,15 @@ start@:
 	ldy #screen+7*32+5
 	lbsr print_string
 	lbsr go_slow
-	lda $ff01
+	lda PIA_A+1
 	anda #%11110111
-	sta $ff01
-	lda $ff03
+	sta PIA_A+1
+	lda PIA_A+3
 	anda #%11110111
-	sta $ff03
-	lda $ff23
+	sta PIA_A+3
+	lda PIA_B+3
 	ora #%00001000
-	sta $ff23
+	sta PIA_B+3
 	ldx #notes@
 main@:
 	ldu ,x++
@@ -25,7 +25,7 @@ main@:
 note@:
 	ldy ,x			; 6
 	lda #$3f		; 3
-	sta $ff20		; 5
+	sta PIA_B		; 5
 	lbsr delay		; 16+8y
 	nop			; 2
 	nop			; 2
@@ -36,7 +36,7 @@ note@:
 	brn note@		; 3
 	ldy ,x			; 6
 	lda #$00		; 3
-	sta $ff20		; 5
+	sta PIA_B		; 5
 	lbsr delay		; 16+8y
 	leau -1,u		; 5
 	cmpu #$0000		; 7
@@ -44,9 +44,9 @@ note@:
 	leax 2,x
 	bra main@
 exit@:
-	lda $ff23
+	lda PIA_B+3
 	anda #%11110111
-	sta $ff23
+	sta PIA_B+3
 	ldx #done@
 	ldy #screen+32*8+14
 	lbsr print_string

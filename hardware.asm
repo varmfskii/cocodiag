@@ -43,20 +43,20 @@ dragon@:
 ;;; 
 ispal:	
 	;; enable vsync flag
-	lda $ff03
+	lda PIA_A+3
 	ora #$01
-	sta $ff03
+	sta PIA_A+3
 	;; wait for vsync
-	lda $ff02
+	lda PIA_A+2
 loop1@:
-	lda $ff03
+	lda PIA_A+3
 	bpl loop1@
 	;; count cycles between vsyncs
-	lda $ff02
+	lda PIA_A+2
 	ldy #$0000
 loop2@:
 	leay 1,y
-	lda $ff03
+	lda PIA_A+3
 	bpl loop2@
 	lda hwflag
 	;; more cycles for pal (50Hz) fewer for ntsc (60Hz)
@@ -226,9 +226,9 @@ showhw:	fdb start@
 start@:
 	lbsr cls
 	ldx #hwtitle
-	ldy #$0206
+	ldy #screen+6
 	lbsr print_string
-	ldy #$0241
+	ldy #screen+2*32+1
 	lda #'m'
 	ldb #30
 loop@:
@@ -236,7 +236,7 @@ loop@:
 	decb
 	bne loop@
 	ldb hwflag
-	ldy #$0282
+	ldy #screen+4*32+2
 	bitb #dragon_f
 	beq coco@
 	ldx #dragon
@@ -250,7 +250,7 @@ cc3@:
 	ldx #coco3
 c1@:
 	lbsr print_string
-	ldy #$0292
+	ldy #screen+4*32+18
 	bitb #mmu_f
 	bne mmu@
 	ldx #nommu
@@ -259,7 +259,7 @@ mmu@:
 	ldx #mmu
 c2@:
 	lbsr print_string
-	ldy #$02a2
+	ldy #screen+5*32+2
 	bitb #h6309_f
 	bne h6309@
 	ldx #m6809
@@ -268,13 +268,13 @@ h6309@:
 	ldx #h6309
 c3@:
 	lbsr print_string
-	ldy #$02b2
+	ldy #screen+5*32+18
 	lda ramsize
 	asla
 	ldx #sizes
 	ldx a,x
 	lbsr print_string
-	ldy #$02c2
+	ldy #screen+6*32+2
 	bitb #pal_f
 	bne pal@
 	ldx #ntsc

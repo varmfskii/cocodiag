@@ -4,14 +4,14 @@ romtest:
 	fcz "ROM TEST"
 start@:
 	lbsr cls
-	ldy #$20c
+	ldy #screen+12
 	ldx #romstr
 	lbsr print_string
 	ldy #$220
 	ldd #('-'|$40)*257
 loop@:
 	std ,y++
-	cmpy #$240
+	cmpy #screen+2*32
 	bne loop@
 	lda hwflag
 	bita #dragon_f
@@ -24,7 +24,7 @@ dragon@:
 	lbra anykey
 	
 checkcb:
-	ldy #$0240
+	ldy #screen+2*32
 	ldx #colorbasic
 	lbsr print_string
 	pshs y
@@ -53,7 +53,7 @@ exit@:
 	lbra print_string
 
 checkecb:
-	ldy #$0260
+	ldy #screen+3*32
 	ldx #excolorbasic
 	lbsr print_string
 	pshs y
@@ -83,7 +83,7 @@ exit@:
 
 checksecb:
 checkdb:	
-	ldy #$0240
+	ldy #screen+2*32
 	ldx #dragonbasic
 	lbsr print_string
 	pshs y	

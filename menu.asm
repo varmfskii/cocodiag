@@ -3,20 +3,20 @@
 menu:
 	lbsr cls
 	lda #'-'|$40
-	ldy #$0281
+	ldy #screen+4*32+1
 hline@:
 	sta ,y+
-	cmpy #$029f
+	cmpy #screen+4*32+17
 	bne hline@
 	ldx #title
-	ldy #$0209
+	ldy #screen+0*32+9
 	lbsr print_string
-	ldy #$0228
+	ldy #screen+1*32+8
 	lbsr print_string
-	ldy #$26c
+	ldy #screen+3*32+12
 	ldx #menu_title
 	lbsr print_string
-	ldy #$02a1
+	ldy #screen+5*32+1
 	ldu #entries
 	lda #'A'|$40
 	sta TEMP

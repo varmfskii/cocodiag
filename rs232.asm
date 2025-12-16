@@ -11,29 +11,29 @@ start@:
 	ldx #$0000
 loop@:
 	;; value 1 - 2237 cycles - 4000.28 bps
-	lda $ff20		; 5 = 5
+	lda PIA_B		; 5 = 5
 	ora #%00000010		; 2 = 7
-	sta $ff20		; 5 = 12
+	sta PIA_B		; 5 = 12
 	ldy #273		; 6 = 18
 	lbsr delay		; 8*(y+2) = 2218
 	nop			; 2 = 2220
 	nop			; 2 = 2222
 	nop			; 2 = 2224
 	brn error@		; 3 = 2227
-	ldb $ff22		; 5 = 2232
+	ldb PIA_B+2		; 5 = 2232
 	bitb #%00000001		; 2 = 2234
 	beq error@		; 3 = 2237
 	;; value 0 - 2237 cycles - 4000.28 bps
-	lda $ff20		; 5 = 5
+	lda PIA_B		; 5 = 5
 	anda #%11111101		; 2 = 7
-	sta $ff20		; 5 = 12
+	sta PIA_B		; 5 = 12
 	ldy #272		; 6 = 18
 	lbsr delay		; 8*(y+2) = 2210
 	nop 			; 2 = 2212
 	nop 			; 2 = 2214
 	nop 			; 2 = 2216
 	brn error@		; 3 = 2219
-	ldb $ff22		; 5 = 2224
+	ldb PIA_B+2		; 5 = 2224
 	bitb #%00000001		; 2 = 2226
 	bne error@		; 3 = 2229
 	leax 1,x		; 5 = 2234

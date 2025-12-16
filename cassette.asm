@@ -1,7 +1,7 @@
 motor_off	macro
-	lda $ff21
+	lda PIA_B+1
 	anda #$f7
-	sta $ff21
+	sta PIA_B+1
 	endm
 
 
