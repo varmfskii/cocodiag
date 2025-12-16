@@ -16,23 +16,23 @@ loop@:
 	cmpy #$0220
 	bne loop@
 
-	ldy #$0220
+	ldy #screen+1*32
 loop@:
 	sta ,y
 	sta $1f,y
 	leay $20,y
-	cmpy #$03e0
+	cmpy #screen+15*32
 	bne loop@
 
 	ldx #title
-	ldy #$2a9
+	ldy #screen+5*32+9
 	lbsr print_string
-	ldy #$2c8
+	ldy #screen+6*32+8
 	lbsr print_string
 	ldx #version
-	ldy #$38a
+	ldy #screen+12*32+10
 	lbsr print_string
-	ldy #$3a5
+	ldy #screen+13*32+5
 	lbsr print_string
 
 	ldu #$0400
@@ -60,13 +60,13 @@ endlp:
 
 page0err:
 	ldx #page0
-	ldy #$3aa
+	ldy #screen+13*32+10
 	lbsr print_string
 
 	
 blink:
 	sta SLOW
-	ldy #$3aa
+	ldy #screen+13*32+10
 	ldb #12
 loop@:
 	lda ,y
@@ -82,7 +82,7 @@ delay@:
 	
 page1err:
 	ldx #page1
-	ldy #$3aa
+	ldy #screen+13*32+10
 	lbsr print_string
 	bra blink
 	

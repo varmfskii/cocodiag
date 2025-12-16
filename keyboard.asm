@@ -5,7 +5,7 @@ keyboard:
 start@:
 	lbsr cls
 	ldx #kb_title
-	ldy #$0208
+	ldy #screen+0*32+8
 	lbsr print_string
 	ldx #$0284
 	lda hwflag
@@ -25,12 +25,12 @@ l1@:
 	decb
 	bne l1@
 	leax 8,x
-	cmpx #$0364
+	cmpx #screen+11*32+4
 	blt l0@
 	
 main@:	
 	lda #$fe
-	ldx #$0284
+	ldx #screen+4*32+4
 l0@:
 	ldb #$07
 	stb TEMP
