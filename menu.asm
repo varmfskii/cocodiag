@@ -6,7 +6,7 @@ menu:
 	ldy #screen+4*32+1
 hline@:
 	sta ,y+
-	cmpy #screen+4*32+17
+	cmpy #screen+4*32+31
 	bne hline@
 	ldx #title
 	ldy #screen+0*32+9
