@@ -1,4 +1,4 @@
-# Capabilities as of v1.0
+# Capabilities as of v1.1
 
 - Hardware detection
 
