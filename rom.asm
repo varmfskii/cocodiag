@@ -16,11 +16,18 @@ loop@:
 	lda hwflag
 	bita #dragon_f
 	bne dragon@
+	bita #coco3_f
+	bne coco3@
 	lbsr checkcb
 	lbsr checkecb
 	lbra anykey
 dragon@:
 	lbsr checkdb
+	lbra anykey
+coco3@:
+	lbsr checkcb
+	lbsr checkecb
+	lbsr checksecb
 	lbra anykey
 	
 checkcb:
@@ -82,6 +89,43 @@ exit@:
 	lbra print_string
 
 checksecb:
+	ldy #screen+4*32
+	ldx #secb
+	lbsr print_string
+	pshs y
+	lbsr ramcpy
+	fcb $16,$80,$00
+	;; set to 32k internal ROM
+	lda #$86
+	sta INIT0
+	ldd #$0000
+	std TEMP
+	ldx #$e000
+	ldy #$fe00
+	lbsr crc16
+	;; set to 16k internal/16k external ROM
+	lda #$84
+	sta INIT0
+	fcb $16,$80,$00
+	puls y
+	lda TEMP
+	lbsr print_hex
+	lda TEMP+1
+	lbsr print_hex
+	ldx #secbtab
+	ldd TEMP
+loop@:
+	cmpd ,x
+	beq exit@
+	leax 4,x
+	cmpx #dbtab
+	bne loop@
+	ldx #unk
+	lbra print_string
+exit@:
+	ldx 2,x
+	lbra print_string
+	
 checkdb:	
 	ldy #screen+2*32
 	ldx #dragonbasic
@@ -117,10 +161,14 @@ cbtab:
 	fdb $400a,v12
 	fdb $0c1f,v13
 	fdb $6ea2,v14
+	fdb $3149,v20
 ecbtab:
 	fdb $3441,v10
 	fdb $2d38,v11
+	fdb $5cde,v20
 secbtab:
+	fdb $00ff,secbntsc
+	fdb $ff54,secbpal
 dbtab:
 	fdb $494c,d32
 	fdb $0be1,d64
@@ -152,6 +200,7 @@ colorbasic:
 	fcz "COLOR BASIC: "
 excolorbasic:
 	fcz "EXTENDED COLOR BASIC: "
+secb:	fcz "SUPER EXTENDED BASIC: "
 dragonbasic:
 	fcz "DRAGON BASIC: "
 unk:	fcz " UNK"
@@ -162,3 +211,8 @@ v13:	fcz " 1.3"
 v14:	fcz " 1.4"
 d32:	fcz " 1.0 32K"
 d64:	fcz " 1.0 64K"
+secbntsc:
+	fcz " NTSC"
+secbpal:
+	fcz " PAL"
+v20:	fcz " 2.0"

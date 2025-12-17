@@ -86,11 +86,6 @@ page1err:
 	lbsr print_string
 	bra blink
 	
-anykey:
-	jsr [POLCAT]
-	beq anykey
-	rts
-	
 	include "cassette.asm"
 	include "hardware.asm"
 	include "joystick.asm"
@@ -107,7 +102,7 @@ anykey:
 title:	fcz "COLOR COMPUTER"
 	fcz "DIAGNOSTICS CART"
 version:
-	fcz "VERSION  1.0"
+	fcz "VERSION  1.1"
 	fcz "(C) 2025 ZIA COMPUTING"
 page0:	fcz "PAGE 0 ERROR"
 page1:	fcz "PAGE 1 ERROR"

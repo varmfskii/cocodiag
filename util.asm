@@ -116,7 +116,6 @@ loop@:
 	ora #inram_f
 	sta hwflag
 exit@:
-	inc $200
 	puls x,y,d,pc
 
 go_fast:
@@ -152,3 +151,10 @@ delay:
 	bne delay		; 3
 	nop			; 2
 	rts			; 5
+
+anykey:
+	jsr [POLCAT]
+	beq anykey
+	rts
+
+	
