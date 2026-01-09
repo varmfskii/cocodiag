@@ -1,6 +1,14 @@
 sz = 25.4*[4.25,.9,3];
 rad=2;
 $fn=30;
+module screw(loc) {
+    translate(loc-[0,1.6,0])
+    rotate([90,0,0])
+    {
+        cylinder(3.2,1.5,1.5,center=true);
+        cylinder(3.2,3.2,0,center=true);
+    }
+}
 
 difference() {
     translate([0,0,sz[2]/2])
@@ -13,7 +21,7 @@ difference() {
     translate([0,16.75-sz[1]/2,27.25])
     minkowski() {
         sphere(.3);
-        cube([53.3,1.5,44.5],center=true);
+        cube([53.8,1.5,44.5],center=true);
     }
     translate([0,12.75-sz[1]/2,0])
     cube([51,13.5,85],center=true);
@@ -41,5 +49,8 @@ difference() {
     cube([3.5*25.4,2,3.5*25.4],center=true);
     translate([0,0,sz[2]])
     cube([3.5*25.4,sz[1],2],center=true);
+    translate([0,sz[1]/2-7.25,10])
+    cube([51,10,20],center=true);
+    screw([22.75,sz[1]/2,22.5]);
+    screw([-22.75,sz[1]/2,22.5]);
 }
-
