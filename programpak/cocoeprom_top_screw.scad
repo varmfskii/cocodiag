@@ -4,11 +4,15 @@ $fn=30;
 
 module post(p) {
     translate(p) {
-        rotate([-90,0,0]) {
-            difference() {
-                cylinder(15,2.5,2.5);
-                cylinder(15,1.25,1.5);
+        difference() {
+            union() {
+                rotate([-90,0,0])
+                    cylinder(15,2.5,2.5);
+                translate([0,5,0])
+                    cube([5,10,10],center=true);
             }
+            rotate([-90,0,0])
+                cylinder(15,1.25,1.5);
         }
     }
 }
@@ -18,7 +22,7 @@ difference() {
         translate([-25.25,0,-16.75])
         cube([50.5,5,33.5]);
         translate([-27,0,-18.5])
-        cube([54,.5,37]);
+        cube([54,.6,37]);
         post([-22.75,0,8.5]);
         post([22.75,0,8.5]);
     }

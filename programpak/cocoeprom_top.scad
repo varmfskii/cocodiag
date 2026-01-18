@@ -8,8 +8,10 @@ module post(p) {
             cylinder(15,2.5,2.5);
             cylinder(18.5,1.5,1.5);
             translate([0,0,18.5])
-            cylinder(1,1.5,1);
+                cylinder(1,1.5,1);
         }
+        translate([0,5,0])
+            cube([5,10,10],center=true);
     }
 }
 
@@ -18,7 +20,7 @@ difference() {
         translate([-25.25,0,-16.75])
         cube([50.5,5,33.5]);
         translate([-27,0,-18.5])
-        cube([54,.5,37]);
+        cube([54,.6,37]);
         post([-22.75,0,8.5]);
         post([22.75,0,8.5]);
     }
