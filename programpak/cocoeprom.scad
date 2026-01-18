@@ -27,8 +27,8 @@ difference() {
     cube([51,13.5,85],center=true);
     translate([0,-6.9,32.25])
     cube([51,32,34],center=true);
-    translate([0,-11,32.25])
-    cube([55,3,38],center=true);
+    translate([0,-sz[1]/2,32.25])
+    cube([55,4,38],center=true);
     translate([sz[0]/2,0,sz[2]-17])
     cube([4,25,12.7], center=true);
     translate([sz[0]/2+1,0,sz[2]-23.35])
