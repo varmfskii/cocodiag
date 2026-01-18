@@ -6,8 +6,8 @@ module post(p) {
     translate(p) {
         rotate([-90,0,0]) {
             cylinder(15,2.5,2.5);
-            cylinder(18.5,1.5,1.5);
-            translate([0,0,18.5])
+            cylinder(17.5,1.5,1.5);
+            translate([0,0,17.5])
                 cylinder(1,1.5,1);
         }
         translate([0,5,0])
