@@ -1,5 +1,5 @@
 
-title:	
+title_scn:	
 	lda #'*'
 	ldy #screen
 loop@:

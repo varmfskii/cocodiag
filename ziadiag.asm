@@ -7,7 +7,7 @@ start:
 	lda #$02
 	lbsr settxt
 	lbsr cls
-	lbsr title
+	lbsr title_scn
 	ldu #$0400
 	ldx #$0000
 	lbsr tst_page
