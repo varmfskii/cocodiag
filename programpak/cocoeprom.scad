@@ -1,4 +1,5 @@
 sz = 25.4*[4.25,.9,3];
+label = 3.625*25.4;
 rad=2;
 $fn=30;
 module screw(loc) {
@@ -45,10 +46,10 @@ difference() {
     translate([-sz[0]/2-1,0,sz[2]-10.65])
     rotate([0,45,0])
     cube([4,25,4], center=true);
-    translate([0,-sz[1]/2,1.75*25.4+5])
-    cube([3.5*25.4,2,3.5*25.4],center=true);
+    translate([0,-sz[1]/2,1.8075*25.4+5])
+    cube([label,2,label],center=true);
     translate([0,0,sz[2]])
-    cube([3.5*25.4,sz[1],2],center=true);
+    cube([label,sz[1],2],center=true);
     translate([0,sz[1]/2-7.25,10])
     cube([51,10,20],center=true);
     screw([22.75,sz[1]/2,22.5]);
