@@ -1,0 +1,65 @@
+The Zia Diagnostics Cart
+
+This is a diagnostics ROM for the Tandy Color Computer 1, 2, and 3,
+the TANO Dragon, and the Dragon Data Dragon 32 and 64. It may work
+with other clones or near clones of these systems. This was heavily
+inspired by the Diagnostics Pak sold by Radio Shack and Tandy for the
+Color Computers with the intent to overcome a few perceived
+shortcomings and limitations of that software. It is not a patched
+version, it was written from scratch in M6809 and H6309 assembly
+language.
+
+Initial startup: There will be a slight delay before the initial title
+screen shows up in the orange and black alternate color scheme. During
+this delay the first 512 bytes of RAM are tested and some tests are
+run to determine some features of the hardware it is being run
+on. Hitting any key will put you in the main menu. After completing a
+test any key will also return you to the main menu.
+
+Menu options:
+
+A) Hardware info: reports the hardware configuration detected at
+startup. This includes CoCo vs Dragon, 50Hz vs 60Hz, M6809 vs H6309
+CPU, presence of a GIME style MMU, and memory size detected (up to
+2MB)
+
+B) Memory test: test all of your memory. If there is a problem it will
+let you know. First it will test the display area, then all of your
+memory. If you have an MMU, the top half of the screen will show the
+progress of the 256 byte pages in the current page while the bottom
+half shows the progress of the 8k blocks tested. A zero (invere @) is
+a successful test while a failure in an area tested shows up a set
+bits.
+
+C) ROM test: performs a CRC of the BASIC ROMs in your machine and
+shows the ROM version based on that CRC.
+
+D) Video test: Allows running video tests based on the detected video
+hardware (MC6847 or GIME). It does not distinguish between the MC6847
+and MC6847T1 or between the two versions of the GIME. The MC6847 test
+just runs through all of the available video modes for the MC6847 (if
+a GIME is detected the MC6847 option will skip modes not implemented
+in the GIME) while for the GIME you are allowed to set all of the
+various options for the GIME video.
+
+E) Keyboard test: shows the detected keypresses in the keyboard
+matrix.
+
+F) Joystick test: tests both of the analog joysticks (requires
+joysticks)
+
+G Sound test: plays some times on the 6-bit DAC.
+
+H) Cassette test: saves a short piece of data to cassette, then loads
+it back. (requires a cassette tape drive to be attached)
+
+I) RS232 test: sends a series of characters to the CoCo serial port
+(requires a loopback dongle)
+
+J) Printer test: sends the printable characters to an attached printer
+at 600 baud (requires a printer configured for 600 baud to be
+attached).
+
+
+
+
