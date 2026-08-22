@@ -76,8 +76,8 @@ page1err:
 title:	fcz "COLOR COMPUTER"
 	fcz "DIAGNOSTICS CART"
 version:
-	fcz "VERSION  1.1"
-	fcz "(C) 2025 ZIA COMPUTING"
+	fcz "VERSION  1.2"
+	fcz "(C) 2025-2026  ZIA COMPUTING"
 page0:	fcz "PAGE 0 ERROR"
 page1:	fcz "PAGE 1 ERROR"
 blank:	fcz "            "

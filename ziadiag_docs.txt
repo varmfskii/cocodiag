@@ -16,6 +16,12 @@ run to determine some features of the hardware it is being run
 on. Hitting any key will put you in the main menu. After completing a
 test any key will also return you to the main menu.
 
+Note: Currently the title is shown, then the initial tests are
+run. This probably needs to be fixed. There is also consideration to
+make this part not use RAM. For instance place a copy of the initial
+testing, page zero and page one responses on the ROM and use inline
+code rather than subroutines.
+
 Menu options:
 
 A) Hardware info: reports the hardware configuration detected at
